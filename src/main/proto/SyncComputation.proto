@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package computationServices;
+option java_multiple_files = true;
+option objc_class_prefix = "part3Sync";
+option java_outer_classname = "part3Sync";
+
+service syncSort {
+  rpc SyncSort(syncSortIp) returns (syncSortOp){}
+}
+
+service SyncAdd {
+  rpc SyncAdd(syncSumIp) returns (syncSumOp){}
+}
+
+message syncSumIp {
+  int32 a = 1;
+  int32 b = 5;
+  string sumReqId = 6;
+  string msg = 7;
+}
+
+message syncSortIp {
+  repeated int32 arr = 1;
+  string sortReqId = 6;
+  string msg = 7;
+}
+
+message syncSumOp {
+  int32 sum = 1;
+  string msg = 7;
+  string sumReqId = 6;
+}
+
+message syncSortOp {
+  repeated int32 arr = 1;
+  string sortReqId = 6;
+  string msg = 7;
+}
+
